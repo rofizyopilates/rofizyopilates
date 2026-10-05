@@ -1,0 +1,7 @@
+/* Ekstra küçük ekranlar için özel ayarlar */
+@media (max-width: 400px) {
+    .hero-content h1 { font-size: 1.8rem; }
+    .section-title { font-size: 1.8rem; }
+    .pricing-card .price { font-size: 1.6rem; }
+    .footer-links { flex-direction: column; gap: 10px; text-align: center; }
+}

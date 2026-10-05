@@ -1,13 +1,10 @@
 // ============================================================
-// Google Analytics 4 (GA4) Takip Kodu
-// ============================================================
-// ÖNEMLİ: Aşağıdaki "G-XXXXXXXXXX" kısmını Google Analytics
-// hesabınızdan aldığınız kendi Measurement ID'niz ile değiştirin.
-// Örnek: G-1A2B3C4D5E
+// Google Analytics 4 (GA4) Takip Kodu - RO Fizyopilates
+// Measurement ID: G-5STPFWZTLG
 // ============================================================
 
 (function() {
-    var GA_ID = 'G-XXXXXXXXXX'; // <-- BURAYI KENDİ ID'NİZLE DEĞİŞTİRİN
+    var GA_ID = 'G-5STPFWZTLG';
 
     var script = document.createElement('script');
     script.async = true;
@@ -33,4 +30,40 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Telefon butonuna tıklanma olayını izleme
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(telBtn) {
+        telBtn.addEventListener('click', function() {
+            if (typeof gtag === 'function') {
+                gtag('event', 'phone_click', {
+                    'event_category': 'engagement',
+                    'event_label': 'Telefon Arama'
+                });
+            }
+        });
+    });
+
+    // Instagram linkine tıklanma olayını izleme
+    document.querySelectorAll('a[href*="instagram.com"]').forEach(function(igBtn) {
+        igBtn.addEventListener('click', function() {
+            if (typeof gtag === 'function') {
+                gtag('event', 'instagram_click', {
+                    'event_category': 'engagement',
+                    'event_label': 'Instagram Profili'
+                });
+            }
+        });
+    });
+
+    // Özel fiyat butonuna tıklanma olayını izleme
+    document.querySelectorAll('.special-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            if (typeof gtag === 'function') {
+                gtag('event', 'special_price_click', {
+                    'event_category': 'engagement',
+                    'event_label': 'Özel Fiyat Butonu'
+                });
+            }
+        });
+    });
 });
